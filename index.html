@@ -9,11 +9,17 @@
     const app = document.getElementById("app")
    
     function Header() {
-       return (<h1>Hello</h1>)
+       return (<h1>Hello, HI</h1>)
      }
-   
+  
+    function HomePage() {
+      return <div>
+        <Header />
+      </div>
+    }
+
     const root = ReactDOM.createRoot(app);
-    root.render(<Header/>);
+    root.render(<HomePage/>);
   </script>
 
 </body>

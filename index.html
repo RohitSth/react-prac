@@ -8,13 +8,31 @@
   <script type="text/jsx">
     const app = document.getElementById("app")
    
-    function Header() {
-       return (<h1>Hello, HI</h1>)
+    function Header(props) {
+       return (
+       <> 
+       <h1>Hello, HI {props.title}</h1>
+       </>)
      }
+
+     function Header2({title}) {
+      return (
+      <> 
+      <h1>Hello, {title}</h1>
+      <h1>{`Object literals ${title}`}</h1>
+      </>)
+    }
   
     function HomePage() {
+      const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
       return <div>
-        <Header />
+        <Header title="react"/>
+        <Header2 title="ok" />
+        <ul>
+          {names.map((name) => (
+            <li keys={name}>{name}</li>
+          ))}
+        </ul>
       </div>
     }
 

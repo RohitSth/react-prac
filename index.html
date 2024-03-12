@@ -1,10 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 
 <body>
   <div id="app"></div>
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
   <script type="text/jsx">
     const app = document.getElementById("app")
    
@@ -26,10 +34,32 @@
     function HomePage() {
       const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
 
+      const [likes, setLikes] = React.useState(0);
+
       function handleClick() {
         console.log('The link was clicked.');
       }
-      return <div>
+      function handleLike() {
+        setLikes(likes + 1)
+      }
+
+      const [count, setCount] = React.useState(0);
+
+      function handleIncrease(){
+        setCount(count + 1)
+      }
+
+      function handleZero(){
+        setCount(0)
+      }
+
+      function handleDecrease(){
+        setCount(count - 1)
+      }
+
+
+      return 
+      (<>
         <Header title="react"/>
         <Header2 title="ok" />
         <ul>
@@ -38,7 +68,12 @@
           ))}
         </ul>
         <button onClick={handleClick}>State Interaction</button>
-      </div>
+        <button onClick={handleLike}>Like({likes})</button>
+
+        <button onClick={handleDecrease}>Decrease</button>
+        <button onClick={handleZero}>Clear {count}</button>
+        <button onClick={handleIncrease}>Increase</button>
+      </>);
     }
 
     const root = ReactDOM.createRoot(app);

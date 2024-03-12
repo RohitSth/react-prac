@@ -25,14 +25,19 @@
   
     function HomePage() {
       const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
+      function handleClick() {
+        console.log('The link was clicked.');
+      }
       return <div>
         <Header title="react"/>
         <Header2 title="ok" />
         <ul>
           {names.map((name) => (
-            <li keys={name}>{name}</li>
+            <li key={name}>{name}</li>
           ))}
         </ul>
+        <button onClick={handleClick}>State Interaction</button>
       </div>
     }
 
